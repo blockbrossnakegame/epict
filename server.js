@@ -12,6 +12,16 @@ client.on("ready", () => {
   client.user.setActivity(".help | EPICT", { type: "PLAYING" });
 });
 
+client.on("messageDelete", (deletedMessage) => {
+  if (!deletedMessage.author.bot) {
+    snipedMessage[deletedMessage.channel.id] = {
+      content: deletedMessage.content,
+      author: deletedMessage.author.tag,
+      timestamp: deletedMessage.createdTimestamp
+    };
+  }
+});
+
 client.on("message", async (message) => {
   if (message.author.bot) {
   } else {
@@ -45,6 +55,21 @@ client.on("message", async (message) => {
       } else {
         let nicknames = ["🎱 yes", "🎱 no", "🎱 yes r u that dumb?", "🎱no, you idiot", "🎱idk why do you ask me?", "🎱too lazy to answer"]
         message.channel.send(`${nicknames[Math.floor(Math.random() * nicknames.length)]}`);
+      }
+    }
+    if (command.startsWith(".snipe")) {
+    const channelId = message.channel.id;
+    const snipedMsg = snipedMessage[channelId];
+    if (snipedMsg) {
+        const { content, author, timestamp } = snipedMsg;
+        const time = new Date(timestamp).toLocaleString();
+        const snipeEmbed = new MessageEmbed()
+        .setTitle(`Sniped Message in ${message.channel.name}`)
+        .setDescription(`**User:** ${author}\n**Content:** ${content}\n**Time:** ${time}`)
+        .setColor("#ffffff");
+        message.channel.send(snipeEmbed);
+      } else {
+        message.channel.send("There are no recently deleted messages to snipe.");
       }
     }
 
