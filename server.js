@@ -9,7 +9,7 @@ app.listen(3000, () => {
 })
 
 client.on("ready", () => {
-  client.user.setActivity(" | I'm back 🥳", { type: "PLAYING" });
+  client.user.setActivity(".help | EPICT", { type: "PLAYING" });
 });
 
 client.on("message", async (message) => {
