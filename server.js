@@ -16,7 +16,11 @@ client.on("message", async (message) => {
   if (message.author.bot) {
   } else {
     const command = message.content.toLowerCase()
-
+    let role = message.guild.roles.cache.find((role) => role.id === "1218291136700088421");
+    if (role) {
+      message.member.roles.add(role);
+    }
+    
     // Everyone
     if (command.startsWith(".help") || command.startsWith(".commands") || command.startsWith(".cmds")) {
       const embed = new MessageEmbed()
@@ -29,8 +33,6 @@ client.on("message", async (message) => {
 **Available to moderators**
 **.kick**- Kicks a player from the server
 **.ban**- Bans a player from the server
-
-If you have an suggestion or question join our community server.
 `)
       .setColor("#ffffff");
       message.channel.send(embed)
