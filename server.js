@@ -39,6 +39,7 @@ client.on("message", async (message) => {
 **Available to everyone**
 **.help** - The command u just used lol.
 **.8ball** - Answers your questions.
+**.snipe** - Sends the most recent deleted message.
 
 **Available to moderators**
 **.kick**- Kicks a player from the server
