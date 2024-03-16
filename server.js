@@ -68,12 +68,12 @@ client.on("message", async (message) => {
         const { content, author, timestamp } = snipedMsg;
         const time = new Date(timestamp).toLocaleString();
         const snipeEmbed = new MessageEmbed()
-        .setTitle(`Sniped Message in ${message.channel.name}`)
-        .setDescription(`**User:** ${author}\n**Content:** ${content}\n**Time:** ${time}`)
+        .setTitle(`Sniped Message in #${message.channel.name}`)
+        .setDescription(`**User:** ${author}\n**Content:** ${content}\n**Time:** ${time}\nYour message got SNIPED <:sniper:1218626785646874665><:sniper:1218626785646874665><:sniper:1218626785646874665>`)
         .setColor("#ffffff");
         message.channel.send(snipeEmbed);
       } else {
-        message.channel.send("There are no recently deleted messages to snipe.");
+        message.channel.send("<:EpicTrollerDeclined:1218624990505603143> There are no recently deleted messages to snipe.");
       }
     }
 
@@ -84,13 +84,13 @@ client.on("message", async (message) => {
         if (mention) {
           mention.kick()
           .then(member => {
-            message.channel.send(`${mention} has been kicked L`);
+            message.channel.send(`<:EpicTrollerApproved:1218625043853213706> ${mention} has been kicked.`);
           })
           .catch(error => {
-             message.channel.send(`Kicking has failed :(`);
+             message.channel.send(`<:EpicTrollerDeclined:1218624990505603143> Kicking has failed. Reason: user can not be kicked`);
           });
         } else {
-          message.channel.send("You have to @ someone to kick them");
+          message.channel.send("<:EpicTrollerDeclined:1218624990505603143> Kicking has failed. Reason: You didn't @ someone");
         }
       }
     }
@@ -101,13 +101,13 @@ client.on("message", async (message) => {
         if (mention) {
           mention.ban()
           .then(member => {
-            message.channel.send(`${mention} has been banned L`);
+            message.channel.send(`<:EpicTrollerApproved:1218625043853213706> ${mention} has been banned.`);
           })
           .catch(error => {
-             message.channel.send(`Banning has failed :(`);
+             message.channel.send(`<:EpicTrollerDeclined:1218624990505603143> Banning has failed. Reason: user can not be kicked`);
           });
         } else {
-          message.channel.send("You have to @ someone to ban them");
+          message.channel.send("<:EpicTrollerDeclined:1218624990505603143> Banning has failed. Reason: You didn't @ someone");
         }
       }
     }
