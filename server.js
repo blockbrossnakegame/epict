@@ -48,9 +48,11 @@ client.on("message", async (message) => {
 `)
       .setColor("#ffffff");
       message.channel.send(embed)
+      let channel = client.channels.cache.get("1218590780495757393");
+      channel.send(`${message.author.tag} used .help`);
     }
     
-    if (command.startsWith("!8ball")) {
+    if (command.startsWith(".8ball")) {
       if (command.match("is bruinebies a femboy") || command.match("is bruinebies femboy")) {
         let nicknames = ["🎱no", "🎱no, you idiot", "🎱too lazy to answer"]
         message.channel.send(`${nicknames[Math.floor(Math.random() * nicknames.length)]}`);
