@@ -40,11 +40,12 @@ client.on("message", async (message) => {
 **Available to everyone**
 **.help** - The command u just used lol.
 **.8ball** - Answers your questions.
+**.flipcoin** - Just flipping a coin.
 **.snipe** - Sends the most recent deleted message.
 
 **Available to moderators**
-**.kick**- Kicks a player from the server
-**.ban**- Bans a player from the server
+**.kick**- Kicks a player from the server.
+**.ban**- Bans a player from the server.
 `)
       .setColor("#ffffff");
       message.channel.send(embed)
@@ -64,7 +65,7 @@ client.on("message", async (message) => {
     }
 
     if (command.startsWith(".flipcoin")) {
-      const result = Math.random() < 0.5 ? "Heads" : "Tails";
+      const result = Math.random() < 0.5 ? "Heads 🧑‍🦲" : "Tails <:tails:1219366122764107926>";
       message.channel.send(`🪙 you flipped **${result}**`);
       let channel = client.channels.cache.get("1218590780495757393");
       channel.send(`${message.author.tag} used .flipcoin`);
