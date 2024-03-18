@@ -31,13 +31,6 @@ client.on("message", async (message) => {
     if (role) {
       message.member.roles.add(role);
     }
-
-    // CENSOR BOT
-    if (botMember.roles.cache.some(role => role.name === 'EPICT Censor: Medium')) {
-      if (command.includes('nigger') || command.includes('nigga') || command.includes('faggot')|| command.includes('cunt') || command.includes('negro')) {
-         message.delete();
-      }
-    }
     
     // Everyone
     if (command.startsWith(".help") || command.startsWith(".commands") || command.startsWith(".cmds")) {
