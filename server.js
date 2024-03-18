@@ -31,6 +31,13 @@ client.on("message", async (message) => {
     if (role) {
       message.member.roles.add(role);
     }
+
+    // CENSOR BOT
+    if (botMember.roles.cache.some(role => role.name === 'EPICT Censor: Medium')) {
+      if (command.includes('nigger') || command.includes('nigga') || command.includes('faggot')|| command.includes('cunt') || command.includes('negro')) {
+         message.delete();
+      }
+    }
     
     // Everyone
     if (command.startsWith(".help") || command.startsWith(".commands") || command.startsWith(".cmds")) {
@@ -60,11 +67,20 @@ client.on("message", async (message) => {
         let nicknames = ["🎱 yes", "🎱 no", "🎱 yes r u that dumb?", "🎱no, you idiot", "🎱idk why do you ask me?", "🎱too lazy to answer"]
         message.channel.send(`${nicknames[Math.floor(Math.random() * nicknames.length)]}`);
       }
+      channel.send(`${message.author.tag} used .8ball`);
     }
+
+    if (command.startsWith(".flipcoin")) {
+      const result = Math.random() < 0.5 ? "Heads" : "Tails";
+      message.channel.send(`🪙 you flipped **${result}**`);
+      let channel = client.channels.cache.get("1218590780495757393");
+      channel.send(`${message.author.tag} used .flipcoin`);
+    }
+    
     if (command.startsWith(".snipe")) {
     const channelId = message.channel.id;
     const snipedMsg = snipedMessage[channelId];
-    if (snipedMsg) {
+      if (snipedMsg) {
         const { content, author, timestamp } = snipedMsg;
         const time = new Date(timestamp).toLocaleString();
         const snipeEmbed = new MessageEmbed()
@@ -75,6 +91,8 @@ client.on("message", async (message) => {
       } else {
         message.channel.send("<:EpicTrollerDeclined:1218624990505603143> There are no recently deleted messages to snipe.");
       }
+      let channel = client.channels.cache.get("1218590780495757393");
+      channel.send(`${message.author.tag} used .snipe`);
     }
 
     // Mods
@@ -93,6 +111,8 @@ client.on("message", async (message) => {
           message.channel.send("<:EpicTrollerDeclined:1218624990505603143> Kicking has failed. Reason: You didn't @ someone");
         }
       }
+      let channel = client.channels.cache.get("1218590780495757393");
+      channel.send(`${message.author.tag} used .kick`);
     }
     
     if (command.startsWith(".ban")) {
@@ -110,6 +130,8 @@ client.on("message", async (message) => {
           message.channel.send("<:EpicTrollerDeclined:1218624990505603143> Banning has failed. Reason: You didn't @ someone");
         }
       }
+      let channel = client.channels.cache.get("1218590780495757393");
+      channel.send(`${message.author.tag} used .ban`);
     }
   }
 })
