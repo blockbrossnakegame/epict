@@ -1,6 +1,7 @@
 let Discord = require("discord.js");
 let client = new Discord.Client();
 let { MessageEmbed } = require("discord.js");
+const keep_alive = require('./keep_alive.js');
 const express = require("express");
 const app = express();
 let snipedMessage = {};
