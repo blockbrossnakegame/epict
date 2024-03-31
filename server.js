@@ -27,6 +27,8 @@ client.on("messageDelete", (deletedMessage) => {
 client.on("message", async (message) => {
   if (message.author.bot) {
   } else {
+    if (message.channel.type === 'dm') {
+    } else {
     const command = message.content.toLowerCase()
     let role = message.guild.roles.cache.find((role) => role.id === "1218291136700088421");
     if (role) {
@@ -128,6 +130,7 @@ client.on("message", async (message) => {
       let channel = client.channels.cache.get("1218590780495757393");
       channel.send(`${message.author.tag} used .ban`);
     }
+  }
   }
 })
 
