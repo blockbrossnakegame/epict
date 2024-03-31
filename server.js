@@ -28,6 +28,36 @@ client.on("message", async (message) => {
   if (message.author.bot) {
   } else {
     if (message.channel.type === 'dm') {
+      if (command.startsWith(".help") || command.startsWith(".commands") || command.startsWith(".cmds")) {
+        const embed = new MessageEmbed()
+        .setTitle(`**Epic Troller Help Guide**`)
+        .setDescription(`Here can you view all **epic troller commands**\n**There are more commands in servers!**
+**Available to everyone in dm's**
+**.help** - The command u just used lol.
+**.8ball** - Answers your questions.
+**.flipcoin** - Just flipping a coin.
+`)
+        .setColor("#ffffff");
+        message.author.send(embed)
+        let channel = client.channels.cache.get("1218590780495757393");
+        channel.send(`${message.author.tag} used .help (dms)`);
+      }
+      if (command.startsWith(".8ball")) {
+        if (command.match("is bruinebies a femboy") || command.match("is bruinebies femboy")) {
+          let nicknames = ["🎱no", "🎱no, you idiot", "🎱too lazy to answer"]
+          message.author.send(`${nicknames[Math.floor(Math.random() * nicknames.length)]}`);
+        } else {
+          let nicknames = ["🎱 yes", "🎱 no", "🎱 yes r u that dumb?", "🎱no, you idiot", "🎱idk why do you ask me?", "🎱too lazy to answer"]
+          message.author.send(`${nicknames[Math.floor(Math.random() * nicknames.length)]}`);
+        }
+        channel.send(`${message.author.tag} used .8ball`);
+      }
+      if (command.startsWith(".flipcoin")) {
+        const result = Math.random() < 0.5 ? "Heads 🧑‍🦲" : "Tails <:tails:1219366122764107926>";
+        message.author.send(`🪙 you flipped **${result}**`);
+        let channel = client.channels.cache.get("1218590780495757393");
+        channel.send(`${message.author.tag} used .flipcoin`);
+      }
     } else {
     const command = message.content.toLowerCase()
     let role = message.guild.roles.cache.find((role) => role.id === "1218291136700088421");
