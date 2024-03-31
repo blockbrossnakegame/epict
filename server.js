@@ -27,6 +27,7 @@ client.on("messageDelete", (deletedMessage) => {
 client.on("message", async (message) => {
   if (message.author.bot) {
   } else {
+    const command = message.content.toLowerCase()
     if (message.channel.type === 'dm') {
       if (command.startsWith(".help") || command.startsWith(".commands") || command.startsWith(".cmds")) {
         const embed = new MessageEmbed()
@@ -59,7 +60,6 @@ client.on("message", async (message) => {
         channel.send(`${message.author.tag} used .flipcoin`);
       }
     } else {
-    const command = message.content.toLowerCase()
     let role = message.guild.roles.cache.find((role) => role.id === "1218291136700088421");
     if (role) {
       message.member.roles.add(role);
