@@ -45,7 +45,7 @@ client.on("message", async (message) => {
 **.help** - The command u just used lol.
 **.8ball** - Answers your questions.
 **.flipcoin** - Just flipping a coin.
-`)
+https://discord.gg/ETed2UzY5W`)
         .setColor("#FF0000");
         message.author.send(embed)
         let channel = client.channels.cache.get("1218590780495757393");
@@ -82,7 +82,7 @@ client.on("message", async (message) => {
 **Available to moderators**
 **.kick**- Kicks a player from the server.
 **.ban**- Bans a player from the server.
-`)
+https://discord.gg/ETed2UzY5W`)
       .setColor("#FF0000");
       message.channel.send(embed)
       let channel = client.channels.cache.get("1218590780495757393");
