@@ -88,6 +88,21 @@ client.on("message", async (message) => {
       let channel = client.channels.cache.get("1218590780495757393");
       channel.send(`${message.author.tag} used .help`);
     }
+
+      if (command.startsWith(".rulesaaaaaaa") {
+      const embed = new MessageEmbed()
+      .setTitle(`**The Nucks Rules**`)
+      .setDescription(`1. No Inappropriate Topics
+2. You are allowed to swear but dont use really REALLY bad swear words
+3. No racist stuff
+4. No Inappropriate Images/emotes
+
+**Just don't break these rules and be smart, thanks**`)
+      .setColor("#FF0000");
+      message.channel.send(embed)
+      let channel = client.channels.cache.get("1218590780495757393");
+      channel.send(`${message.author.tag} used .help`);
+    }
     
     if (command.startsWith(".8ball")) {
       let nicknames = ["🎱 yes", "🎱 no", "🎱 yes", "🎱no", "🎱idk why do you ask me?", "🎱zzzzzzzz"]
