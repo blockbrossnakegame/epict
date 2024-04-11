@@ -19,7 +19,7 @@ app.get("/2", (req, res) => {
 })
 
 client.on("ready", () => {
-  client.user.setActivity(".help | EPICT", { type: "PLAYING" });
+  client.user.setActivity(".help | The Nucks", { type: "PLAYING" });
 });
 
 client.on("messageDelete", (deletedMessage) => {
