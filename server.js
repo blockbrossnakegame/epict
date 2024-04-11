@@ -10,6 +10,14 @@ app.listen(3000, () => {
   console.log("Epic troller is back.");
 })
 
+app.get("/", (req, res) => {
+  res.send(`epic-bot`);
+})
+
+app.get("/2", (req, res) => {
+  res.send(`epic-bot`);
+})
+
 client.on("ready", () => {
   client.user.setActivity(".help | EPICT", { type: "PLAYING" });
 });
