@@ -39,33 +39,28 @@ client.on("message", async (message) => {
     if (message.channel.type === 'dm') {
       if (command.startsWith(".help") || command.startsWith(".commands") || command.startsWith(".cmds")) {
         const embed = new MessageEmbed()
-        .setTitle(`**Epic Troller Help Guide**`)
-        .setDescription(`Here can you view all **epic troller commands**\n**There are more commands in servers!**
+        .setTitle(`**The Nucks Help Guide**`)
+        .setDescription(`Here can you view all **The Nucks commands**\n**There are more commands in servers!**
 **Available to everyone in dm's**
 **.help** - The command u just used lol.
 **.8ball** - Answers your questions.
 **.flipcoin** - Just flipping a coin.
 `)
-        .setColor("#ffffff");
+        .setColor("#FF0000");
         message.author.send(embed)
         let channel = client.channels.cache.get("1218590780495757393");
         channel.send(`${message.author.tag} used .help (dms)`);
       }
       if (command.startsWith(".8ball")) {
-        if (command.match("is bruinebies a femboy") || command.match("is bruinebies femboy")) {
-          let nicknames = ["🎱no", "🎱no, you idiot", "🎱too lazy to answer"]
-          message.author.send(`${nicknames[Math.floor(Math.random() * nicknames.length)]}`);
-        } else {
-          let nicknames = ["🎱 yes", "🎱 no", "🎱 yes r u that dumb?", "🎱no, you idiot", "🎱idk why do you ask me?", "🎱too lazy to answer"]
-          message.author.send(`${nicknames[Math.floor(Math.random() * nicknames.length)]}`);
-        }
-        channel.send(`${message.author.tag} used .8ball`);
+        let nicknames = ["🎱 yes", "🎱 no", "🎱 yes", "🎱no", "🎱idk why do you ask me?", "🎱zzzzzzzz"]
+        message.author.send(`${nicknames[Math.floor(Math.random() * nicknames.length)]}`);
+        channel.send(`${message.author.tag} used .8ball (dms)`);
       }
       if (command.startsWith(".flipcoin")) {
-        const result = Math.random() < 0.5 ? "Heads 🧑‍🦲" : "Tails <:tails:1219366122764107926>";
+        const result = Math.random() < 0.5 ? "Heads 🧑‍🦲" : "Tails <:Tails:1227987501692620921>";
         message.author.send(`🪙 you flipped **${result}**`);
         let channel = client.channels.cache.get("1218590780495757393");
-        channel.send(`${message.author.tag} used .flipcoin`);
+        channel.send(`${message.author.tag} used .flipcoin (dms)`);
       }
     } else {
     let role = message.guild.roles.cache.find((role) => role.id === "1218291136700088421");
@@ -76,8 +71,8 @@ client.on("message", async (message) => {
     // Everyone
     if (command.startsWith(".help") || command.startsWith(".commands") || command.startsWith(".cmds")) {
       const embed = new MessageEmbed()
-      .setTitle(`**Epic Troller Help Guide**`)
-      .setDescription(`Here can you view all **epic troller commands**
+      .setTitle(`**The Nucks Help Guide**`)
+      .setDescription(`Here can you view all **The Nucks commands**
 **Available to everyone**
 **.help** - The command u just used lol.
 **.8ball** - Answers your questions.
@@ -88,25 +83,20 @@ client.on("message", async (message) => {
 **.kick**- Kicks a player from the server.
 **.ban**- Bans a player from the server.
 `)
-      .setColor("#ffffff");
+      .setColor("#FF0000");
       message.channel.send(embed)
       let channel = client.channels.cache.get("1218590780495757393");
       channel.send(`${message.author.tag} used .help`);
     }
     
     if (command.startsWith(".8ball")) {
-      if (command.match("is bruinebies a femboy") || command.match("is bruinebies femboy")) {
-        let nicknames = ["🎱no", "🎱no, you idiot", "🎱too lazy to answer"]
-        message.channel.send(`${nicknames[Math.floor(Math.random() * nicknames.length)]}`);
-      } else {
-        let nicknames = ["🎱 yes", "🎱 no", "🎱 yes r u that dumb?", "🎱no, you idiot", "🎱idk why do you ask me?", "🎱too lazy to answer"]
-        message.channel.send(`${nicknames[Math.floor(Math.random() * nicknames.length)]}`);
-      }
+      let nicknames = ["🎱 yes", "🎱 no", "🎱 yes", "🎱no", "🎱idk why do you ask me?", "🎱zzzzzzzz"]
+      message.author.send(`${nicknames[Math.floor(Math.random() * nicknames.length)]}`);
       channel.send(`${message.author.tag} used .8ball`);
     }
 
     if (command.startsWith(".flipcoin")) {
-      const result = Math.random() < 0.5 ? "Heads 🧑‍🦲" : "Tails <:tails:1219366122764107926>";
+      const result = Math.random() < 0.5 ? "Heads 🧑‍🦲" : "Tails <:Tails:1227987501692620921>";
       message.channel.send(`🪙 you flipped **${result}**`);
       let channel = client.channels.cache.get("1218590780495757393");
       channel.send(`${message.author.tag} used .flipcoin`);
@@ -120,11 +110,11 @@ client.on("message", async (message) => {
         const time = new Date(timestamp).toLocaleString();
         const snipeEmbed = new MessageEmbed()
         .setTitle(`Sniped Message in #${message.channel.name}`)
-        .setDescription(`**User:** ${author}\n**Content:** ${content}\n**Time:** ${time}\nYour message got SNIPED <:sniper:1218626785646874665><:sniper:1218626785646874665><:sniper:1218626785646874665>`)
-        .setColor("#ffffff");
+        .setDescription(`**User:** ${author.username}\n**Content:** ${content}\n**Time:** ${time}`)
+        .setColor("#FF0000");
         message.channel.send(snipeEmbed);
       } else {
-        message.channel.send("<:EpicTrollerDeclined:1218624990505603143> There are no recently deleted messages to snipe.");
+        message.channel.send("<:NucksDeclined:1218624990505603143> There are no recently deleted messages to snipe.");
       }
       let channel = client.channels.cache.get("1218590780495757393");
       channel.send(`${message.author.tag} used .snipe`);
@@ -137,13 +127,13 @@ client.on("message", async (message) => {
         if (mention) {
           mention.kick()
           .then(member => {
-            message.channel.send(`<:EpicTrollerApproved:1218625043853213706> ${mention} has been kicked.`);
+            message.channel.send(`<:NucksApproved:1218625043853213706> ${mention} has been kicked.`);
           })
           .catch(error => {
-             message.channel.send(`<:EpicTrollerDeclined:1218624990505603143> Kicking has failed. Reason: user can not be kicked`);
+             message.channel.send(`<:NucksDeclined:1218624990505603143> Kicking has failed. Reason: user can not be kicked`);
           });
         } else {
-          message.channel.send("<:EpicTrollerDeclined:1218624990505603143> Kicking has failed. Reason: You didn't @ someone");
+          message.channel.send("<:NucksDeclined:1218624990505603143> Kicking has failed. Reason: You didn't @ someone");
         }
       }
       let channel = client.channels.cache.get("1218590780495757393");
@@ -156,13 +146,13 @@ client.on("message", async (message) => {
         if (mention) {
           mention.ban()
           .then(member => {
-            message.channel.send(`<:EpicTrollerApproved:1218625043853213706> ${mention} has been banned.`);
+            message.channel.send(`<:NucksApproved:1218625043853213706> ${mention} has been banned.`);
           })
           .catch(error => {
-             message.channel.send(`<:EpicTrollerDeclined:1218624990505603143> Banning has failed. Reason: user can not be kicked`);
+             message.channel.send(`<:NucksDeclined:1218624990505603143> Banning has failed. Reason: user can not be kicked`);
           });
         } else {
-          message.channel.send("<:EpicTrollerDeclined:1218624990505603143> Banning has failed. Reason: You didn't @ someone");
+          message.channel.send("<:NucksDeclined:1218624990505603143> Banning has failed. Reason: You didn't @ someone");
         }
       }
       let channel = client.channels.cache.get("1218590780495757393");
