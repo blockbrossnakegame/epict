@@ -162,6 +162,13 @@ client.on("message", async (message) => {
       let channel = client.channels.cache.get("1218590780495757393");
       channel.send(`${message.author.tag} used .ban`);
     }
+    if(message.content.startsWith(".msg")) {
+      if(message.author.id === ("904076782666391583")) {
+        message.delete()
+        var text = message.content.split(' ').slice(1).join(' ')
+        message.channel.send(text)
+      }
+    }
   }
 })
 
