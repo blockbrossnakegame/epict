@@ -55,7 +55,31 @@ client.on("message", async (message) => {
 **Available to moderators**
 **.kick**- Kicks a player from the server.
 **.ban**- Bans a player from the server.
-https://discord.gg/ETed2UzY5W`)
+[Community Server](https://discord.gg/ETed2UzY5W)`)
+      .setImage('https://www.models-resource.com/resources/big_icons/8/7939.png?updated=1409425533')
+      .setColor("#FF0000");
+      if (message.channel.type === 'dm') {
+        message.author.send(embed)
+      } else {
+        message.channel.send(embed)
+      }
+      message.channel.send(embed)
+      let channel = client.channels.cache.get("1218590780495757393");
+      channel.send(`${message.author.tag} used .help`);
+    }
+    
+    if (command.startsWith(".wdsawdsawdsa")) {
+      const embed = new MessageEmbed()
+      .setTitle(`**The Nucks Server Rules**`)
+      .setDescription(`1. No Inappropriate topics, images, video's and links.
+2. You are allowed to swear but dont use really REALLY bad swear words.
+3. No racist stuff.
+4. Do not harrass people.
+
+Just don't break these rules and be smart, thanks.
+**The Nucks** is being currently being used in **${client.guilds.cache.size}** server.
+[Community Server](https://discord.gg/ETed2UzY5W)`)
+      .setImage('https://www.models-resource.com/resources/big_icons/8/7939.png?updated=1409425533')
       .setColor("#FF0000");
       if (message.channel.type === 'dm') {
         message.author.send(embed)
