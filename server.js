@@ -20,6 +20,24 @@ app.get("/2", (req, res) => {
 
 client.on("ready", () => {
   client.user.setActivity(".help | The Nucks", { type: "PLAYING" });
+  let channel = client.channels.cache.get("1218291331487633449");
+  const fetchedMessage = await channel.messages.fetch('1228364000740249661');
+  const embed = new MessageEmbed()
+  .setTitle(`**The Nucks Help Guide**`)
+  .setDescription(`Here can you view all **The Nucks commands**
+**Available to everyone**
+**.help** - The command u just used lol. (Available in dms)
+**.8ball** - Answers your questions. (Available in dms)
+**.flipcoin** - Just flipping a coin. (Available in dms)
+**.snipe** - Sends the most recent deleted message.
+
+**Available to moderators**
+**.kick**- Kicks a player from the server.
+**.ban**- Bans a player from the server.
+[Community Server](https://discord.gg/ETed2UzY5W)`)
+  .setImage('https://www.models-resource.com/resources/big_icons/8/7939.png?updated=1409425533')
+  .setColor("#FF0000");
+  fetchedMessage.edit(embed);
 });
 
 client.on("messageDelete", (deletedMessage) => {
@@ -63,7 +81,6 @@ client.on("message", async (message) => {
       } else {
         message.channel.send(embed)
       }
-      message.channel.send(embed)
       let channel = client.channels.cache.get("1218590780495757393");
       channel.send(`${message.author.tag} used .help`);
     }
@@ -86,7 +103,6 @@ Just don't break these rules and be smart, thanks.
       } else {
         message.channel.send(embed)
       }
-      message.channel.send(embed)
       let channel = client.channels.cache.get("1218590780495757393");
       channel.send(`${message.author.tag} used .help`);
     }
@@ -104,7 +120,6 @@ Just don't break these rules and be smart, thanks.
 
     if (command.startsWith(".flipcoin")) {
       const result = Math.random() < 0.5 ? "Heads 🧑‍🦲" : "Tails <:Tails:1227987501692620921>";
-      message.channel.send(`🪙 you flipped **${result}**`);
       if (message.channel.type === 'dm') {
          message.author.send(`🪙 you flipped **${result}**`);
       } else {
