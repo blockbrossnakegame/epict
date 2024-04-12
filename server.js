@@ -74,6 +74,7 @@ https://discord.gg/ETed2UzY5W`)
       } else {
         message.channel.send(`${nicknames[Math.floor(Math.random() * nicknames.length)]}`);
       }
+      let channel = client.channels.cache.get("1218590780495757393");
       channel.send(`${message.author.tag} used .8ball`);
     }
 
