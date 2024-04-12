@@ -23,18 +23,16 @@ client.on("ready", async () => {
   let channel = client.channels.cache.get("1218291331487633449");
   const fetchedMessage = await channel.messages.fetch('1228364000740249661');
   const embed = new MessageEmbed()
-  .setTitle(`**The Nucks Help Guide**`)
-  .setDescription(`Here can you view all **The Nucks commands**
-**Available to everyone**
-**.help** - The command u just used lol. (Available in dms)
-**.8ball** - Answers your questions. (Available in dms)
-**.flipcoin** - Just flipping a coin. (Available in dms)
-**.snipe** - Sends the most recent deleted message.
+  .setTitle(`**The Nucks Rules**`)
+  .setDescription(`Do not break these rules and be smart
 
-**Available to moderators**
-**.kick**- Kicks a player from the server.
-**.ban**- Bans a player from the server.
-[Community Server](https://discord.gg/ETed2UzY5W)`)
+1. No inappropriate content in this server.
+2. You can swear but don't use really offensive words.
+3. No racism, just don't do it
+  
+Thank you again for joining the server :D
+**The Nucks** is currently used in **${client.guilds.cache.size}** servers!
+[Added it to your server!](https://discord.com/oauth2/authorize?client_id=1064575925150290001&permissions=395539725328&scope=bot)`)
   .setImage('https://www.models-resource.com/resources/big_icons/8/7939.png?updated=1409425533')
   .setColor("#FF0000");
   fetchedMessage.edit(embed);
@@ -73,7 +71,8 @@ client.on("message", async (message) => {
 **Available to moderators**
 **.kick**- Kicks a player from the server.
 **.ban**- Bans a player from the server.
-[Community Server](https://discord.gg/ETed2UzY5W)`)
+
+[Join our discord community server!](https://discord.gg/ETed2UzY5W)`)
       .setImage('https://www.models-resource.com/resources/big_icons/8/7939.png?updated=1409425533')
       .setColor("#FF0000");
       if (message.channel.type === 'dm') {
