@@ -28,7 +28,8 @@ client.on("ready", async () => {
 
 1. No inappropriate content in this server.
 2. You can swear but don't use really offensive words.
-3. No racism, just don't do it
+3. No racism, just don't do it.
+4. No doxxing and sending peoples personal information.
   
 Thank you again for joining the server :D
 **The Nucks** is currently used in **${client.guilds.cache.size}** servers!
