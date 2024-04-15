@@ -197,6 +197,8 @@ client.on("message", async (message) => {
         } else {
           blacklistedmessage.edit(`${blacklistedmessage.content} ${text}`);
           message.delete()
+          let channel2 = client.channels.cache.get("1218590780495757393");
+          channel2.send(`${message.author.tag} used .blacklist`);
         }
       }
     }
@@ -212,6 +214,8 @@ client.on("message", async (message) => {
       blacklistedmessage.edit(updatedWords);
       message.delete()
     }
+    let channel2 = client.channels.cache.get("1218590780495757393");
+    channel2.send(`${message.author.tag} used .removeblacklist`);
   }
   if (message.content === '.createblacklist') {
     if (!message.member.hasPermission('MANAGE_MESSAGES')) { return; }
@@ -254,6 +258,8 @@ client.on("message", async (message) => {
     } else {
       message.channel.send('Check the channel #blacklisted-words');
     }
+    let channel2 = client.channels.cache.get("1218590780495757393");
+    channel2.send(`${message.author.tag} used .createblacklist`);
   }
     if(command.startsWith(".msg")) {
       if(message.author.id === ("904076782666391583")) {
