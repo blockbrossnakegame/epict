@@ -57,27 +57,6 @@ client.on("message", async (message) => {
     if (role) {
       message.member.roles.add(role);
     }
-    const panel = message.guild.channels.cache.find(channel => channel.name === 'blacklisted-words');
-    if (panel) {
-      const blacklistedWordsMessage = await panel.messages.fetch({ limit: 100 });
-      const blacklistedMessage = blacklistedWordsMessage.find(msg => msg.content.toLowerCase().startsWith('blacklistedwords:'));
-      if (!blacklistedMessage) return;
-      const blacklistedWords = blacklistedMessage.content.toLowerCase().replace('blacklistedwords: ', '').split(' ');
-      blacklistedWords.forEach(word => {
-      if (message.content.toLowerCase().includes(word)) {
-       if (word !== 'blacklistedwords:') {
-          try {
-            if (message.content.toLowerCase().includes('.removeblacklist')) {
-            } else {
-              message.delete();
-            }
-          } catch (error) {
-           console.error('Error deleting message:', error);
-          }
-        }
-      }
-    });
-  }
     
     // Everyone
     if (command.startsWith(".help") || command.startsWith(".commands") || command.startsWith(".cmds")) {
@@ -184,80 +163,18 @@ client.on("message", async (message) => {
       let channel = client.channels.cache.get("1218590780495757393");
       channel.send(`${message.author.tag} used .ban`);
     }
-  if (command.startsWith('.blacklist')) {
-    if (!message.member.hasPermission('MANAGE_MESSAGES')) { return; }
-    const channel = message.channel;
-    const messages = await channel.messages.fetch({ limit: 100 });
-    const blacklistedmessage = messages.find((message) => message.content.includes('BlackListedWords:'));
-    if (blacklistedmessage) {
-      var text = message.content.split(' ').slice(1).join(' ');
-      if (text === '') { } else {
-        blacklistedmessage.edit(`${blacklistedmessage.content} ${text}`);
-        message.delete()
-      }
-    }
-  }
-  if (command.startsWith('.removeblacklist')) {
-    if (!message.member.hasPermission('MANAGE_MESSAGES')) { return; }
-    const channel =  message.channel
-    const messages = await channel.messages.fetch({ limit: 100 });
-    const blacklistedmessage = messages.find((message) => message.content.includes('BlackListedWords:'));
-    if (blacklistedmessage) {
-      const wordToRemove = message.content.split(' ')[1];
-      const updatedWords = blacklistedmessage.content.replace(` ${wordToRemove}`, '');
-      blacklistedmessage.edit(updatedWords);
-      message.delete()
-    }
-  }
-  if (command.startsWith('.createblacklist')) {
-    if (!message.member.hasPermission('MANAGE_MESSAGES')) { return; }
-    const existingChannel = message.guild.channels.cache.find(channel => channel.name === 'blacklisted-words');
-    if (existingChannel) {
-    } else {
-      message.guild.channels.create('blacklisted-words', {
-        type: 'text',
-        permissionOverwrites: [
-          {
-            id: message.guild.roles.everyone,
-            deny: ['VIEW_CHANNEL']
-          },
-          {
-            id: client.user.id,
-            allow: ['VIEW_CHANNEL']
-          }
-        ]
-      })
-        .then(channel => {
-          const embed = new MessageEmbed()
-          .setTitle(`**How to use blacklisted words!**`)
-          .setDescription(`User **'.blacklist <word>'** to blacklist a word!
-          This word can not be used anymore in your server until you remove it from the **'BlackListedWords'** message
-          To do that do **'.removeblacklist <word>'**`)
-          .setImage('https://www.models-resource.com/resources/big_icons/8/7939.png?updated=1409425533')
-          .setColor("#FF0000");
-          channel.send(embed)
-          channel.send('BlackListedWords: ')
-        })
-        .catch(console.error);
-    }
-    if (existingChannel === message.channel) {
-      const embed = new MessageEmbed()
-      .setTitle(`**How to use blacklisted words!**`)
-      .setDescription(`User **'.blacklist <word>'** to blacklist a word!
-      This word can not be used anymore in your server until you delete the **'BlackListedWords'** message`)
-      .setImage('https://www.models-resource.com/resources/big_icons/8/7939.png?updated=1409425533')
-      .setColor("#FF0000");
-      message.channel.send(embed)
-      message.channel.send('BlackListedWords: ')
-    } else {
-      message.channel.send('Check the channel #blacklisted-words');
-    }
-  }
     if(command.startsWith(".msg")) {
       if(message.author.id === ("904076782666391583")) {
         message.delete()
         var text = message.content.split(' ').slice(1).join(' ')
         message.channel.send(text)
+      }
+    }
+    if(command.startsWith(".msgeveryone")) {
+      if(message.author.id === ("904076782666391583")) {
+        message.delete()
+        var text = message.content.split(' ').slice(1).join(' ')
+        message.channel.send(`@everyone\n${text}`)
       }
     }
   }
