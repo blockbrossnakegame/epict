@@ -193,7 +193,7 @@ client.on("message", async (message) => {
     if (blacklistedmessage) {
       var text = message.content.split(' ').slice(1).join(' ');
       if (text === '') { } else {
-        if (blacklistedmessage.content.length >= 30 && ) {
+        if (blacklistedmessage.content.length >= 30) {
         } else {
           blacklistedmessage.edit(`${blacklistedmessage.content} ${text}`);
           message.delete()
