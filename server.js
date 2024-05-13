@@ -84,13 +84,13 @@ client.on("message", async (message) => {
       const embed = new MessageEmbed()
       .setTitle(`**The Nucks Help Guide**`)
       .setDescription(`Here can you view all **The Nucks commands**
-**Available to everyone**
+<:Members:1239640781166346382> **Available to everyone.**
 **.help** - The command u just used lol. (Available in dms)
 **.8ball** - Answers your questions. (Available in dms)
 **.flipcoin** - Just flipping a coin. (Available in dms)
 **.snipe** - Sends the most recent deleted message.
 
-**Available to moderators**
+<:Moderators:1239640465712877650> **Available to moderators.**
 **.kick**- Kicks a player from the server.
 **.ban**- Bans a player from the server.
 **.createblacklist**- Creates a blacklist system.
